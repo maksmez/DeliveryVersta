@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.db
+
+# ASP.NET
+bin/
+obj/
+
+# Docker
+docker-compose.override.yml
+
+#DataBase
+deliveryversta.db
+Migrations/

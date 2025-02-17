@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    container_name: backend
+    ports:
+      - "5009:5009"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5009
+      - ConnectionStrings__DefaultConnection=Data Source=/app/deliveryversta.db
+
+
+
+  frontend:
+    build: ./react-app
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=http://backend:5009
