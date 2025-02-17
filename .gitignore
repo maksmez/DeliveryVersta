@@ -10,6 +10,3 @@ obj/
 
 # Docker
 docker-compose.override.yml
-
-#DataBase
-Migrations/
