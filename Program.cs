@@ -3,31 +3,31 @@ using DeliveryVersta.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
-//Указываем адрес React, чтобы не было проблем с CORS
+//РЈРєР°Р·С‹РІР°РµРј Р°РґСЂРµСЃ React, С‡С‚РѕР±С‹ РЅРµ Р±С‹Р»Рѕ РїСЂРѕР±Р»РµРј СЃ CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins(builder.Configuration.GetSection("ReactAddress").Value) // Разрешить только запросы с этого домена
+        policy.WithOrigins(builder.Configuration.GetSection("ReactAddress").Value) // Р Р°Р·СЂРµС€РёС‚СЊ С‚РѕР»СЊРєРѕ Р·Р°РїСЂРѕСЃС‹ СЃ СЌС‚РѕРіРѕ РґРѕРјРµРЅР°
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
 
-// Добавление контекста базы данных
+// Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚Р° Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Добавление поддержки контроллеров
+// Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
 app.UseCors("AllowSpecificOrigin");
-// Настройка маршрутов
+// РќР°СЃС‚СЂРѕР№РєР° РјР°СЂС€СЂСѓС‚РѕРІ
 app.MapControllers();
 
-//Запускаем миграции
+//Р—Р°РїСѓСЃРєР°РµРј РјРёРіСЂР°С†РёРё
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

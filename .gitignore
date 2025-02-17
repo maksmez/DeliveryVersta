@@ -2,7 +2,7 @@
 .vs/
 *.user
 *.suo
-*.db
+*.db*
 
 # ASP.NET
 bin/
@@ -12,5 +12,4 @@ obj/
 docker-compose.override.yml
 
 #DataBase
-deliveryversta.db
 Migrations/

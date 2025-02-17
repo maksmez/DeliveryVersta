@@ -5,12 +5,12 @@ COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -o /out
 
-# Используем минимальный образ ASP.NET Runtime
+# РСЃРїРѕР»СЊР·СѓРµРј РјРёРЅРёРјР°Р»СЊРЅС‹Р№ РѕР±СЂР°Р· ASP.NET Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 COPY --from=build /out .
 
-# Указываем, что сервер должен слушать ВСЕ адреса (не только localhost)
+# РЈРєР°Р·С‹РІР°РµРј, С‡С‚Рѕ СЃРµСЂРІРµСЂ РґРѕР»Р¶РµРЅ СЃР»СѓС€Р°С‚СЊ Р’РЎР• Р°РґСЂРµСЃР° (РЅРµ С‚РѕР»СЊРєРѕ localhost)
 ENV ASPNETCORE_URLS=http://+:5009
 
 ENTRYPOINT ["dotnet", "DeliveryVersta.dll"]
