@@ -1,0 +1,134 @@
+﻿:root {
+    --container-shadow: -10px -10px 30px #efecec, 10px 10px 27px #c8c8d561;
+    --primary-color: #2c66a4;
+}
+
+h1{
+    margin: 0;
+}
+
+.header {
+    display:flex;
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    max-width: 1240px;
+    width: 100%;
+    margin: auto;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: var(--container-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+
+        form div label {
+            flex: 1;
+            text-align: left;
+        }
+
+        form div input {
+            flex: 2;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+p{
+    font-size:large
+}
+
+
+button {
+    align-self: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: large;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+.detail-page {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: var(--container-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders-table {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: var(--container-shadow);
+    border-collapse: collapse
+}
+
+.header-table {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 10px;
+
+}
+
+tbody tr:hover {
+    background: #c8c8d561;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    
+}
+
+.orderlist-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.orderlist-header >:last-child{
+    margin-bottom:20px;
+}
